@@ -303,7 +303,8 @@ fig.update_layout(
     xaxis_title="Features",
     yaxis_title="Importance (%)",
 )
-
+# Adjust y-axis range to go up to 120
+fig.update_yaxes(range=[0, 120])
 
 # Display the waterfall chart in Streamlit
 st.plotly_chart(fig) 
