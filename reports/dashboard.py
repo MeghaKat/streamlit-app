@@ -2,7 +2,6 @@ import pandas as pd  # pip install pandas openpyxl
 import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 import pickle
-import matplotlib.pyplot as plt
 import seaborn as sns
 from millify import millify  # shortens values (10_000 ---> 10k)
 from streamlit_extras.metric_cards import style_metric_cards  # beautify metric card with css
