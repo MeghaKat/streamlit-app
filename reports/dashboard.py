@@ -258,8 +258,8 @@ st.markdown("""---""")
 # Remove columns
 st.write(f"#### Feature Importance")
 columns_to_remove = ['Entity ID', 'Risk Score', 'Phone Number', 'Address','High %','Low %','Moderate %']
-df_feature_imp = df_selection.copy()
-df_feature_imp = df_feature_imp.drop(columns=columns_to_remove)
+df_feature_ = df_selection.copy()
+df_feature_imp = df_feature_.drop(columns=columns_to_remove)
 
 # Apply encoding to relevant columns
 for column in ['Infraction Type', 'Infraction Timeline', 'Public Complaints', 'Sentiment Analysis',
@@ -269,7 +269,7 @@ for column in ['Infraction Type', 'Infraction Timeline', 'Public Complaints', 'S
 # Split features and target
 y = df_feature_imp['Predicted Risk Category']
 X = df_feature_imp.drop(columns=['Predicted Risk Category'])
-
+model.fit(X,y)
 
 # feature importance
 feature_importances_array = ((model.feature_importances_)*100).round(0)
@@ -297,7 +297,6 @@ fig = go.Figure(go.Waterfall(
 ))
 
 fig.update_layout(
-    title="Feature Importances Waterfall Chart",
     showlegend=False,
     xaxis_title="Features",
     yaxis_title="Importance (%)",
